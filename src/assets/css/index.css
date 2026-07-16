@@ -1,0 +1,98 @@
+body {
+  background-color: rgb(13, 12, 40);
+  background-image: linear-gradient(
+    60deg,
+    rgb(10, 9, 37) 0%,
+    rgb(24, 19, 114) 50%,
+    rgb(10, 9, 37) 100%
+  );
+  background-attachment: fixed;
+  color: white;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* NAVBAR */
+.navbar {
+  background: #000000;
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 1) 0%,
+    rgba(0, 0, 0, 0.5) 80%,
+    rgba(0, 0, 0, 0.001) 100%
+  );
+}
+
+.navbar-brand > picture > img,
+.big-brand,
+.small-brand {
+  height: 50px;
+  width: auto;
+}
+
+/* genres-dropdown */
+.genres-dropdown {
+  cursor: pointer;
+  position: static;
+}
+
+.genres-dropdown .dropdown-toggle::after {
+  display: none !important;
+}
+
+.genres-dropdown .dropdown-menu {
+  background-color: #00000099;
+  border: 1px solid #ffffff26;
+  position: absolute;
+}
+
+.genres-dropdown .dropdown-menu.show {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  left: 0;
+  right: 0;
+}
+
+.genres-dropdown .dropdown-menu li {
+  width: 50%;
+}
+
+@media (min-width: 576px) {
+  .genres-dropdown {
+    position: relative;
+  }
+
+  .genres-dropdown .dropdown-menu.show {
+    width: 350px;
+    left: auto;
+    right: -150%;
+  }
+}
+
+/* nav-search */
+.nav-search {
+  max-width: 200px;
+}
+
+.nav-search input {
+  color: white !important;
+  z-index: 100;
+}
+
+.nav-search input::placeholder {
+  color: rgba(255, 255, 255, 0.6) !important;
+}
+
+.search-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 90;
+  cursor: default;
+}

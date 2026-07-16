@@ -1,9 +1,15 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import DefaultLayout from "./layouts/DefaultLayout";
+import Homepage from "./pages/Homepage";
+
 export default function App() {
   return (
-    <>
-      <div className="container my-5 pt-4">
-        <h1 className="fw-bold text-decoration-underline">THE</h1>
-      </div>
-    </>
+    <BrowserRouter>
+      <Routes>
+        <Route Component={DefaultLayout}>
+          <Route path="/" element={<Homepage />} />
+        </Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
