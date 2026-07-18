@@ -1,14 +1,17 @@
 import { useState, useEffect } from "react";
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import Navbar from "../assets/components/Navbar";
 import axios from "axios";
 
 export default function DefaultLayout() {
-  // genres set
   const [genres, setGenres] = useState([]);
-
-  // search control
+  const [performers, setPerformers] = useState([]);
+  const [contents, setContents] = useState([]);
+  const [loading, setLoading] = useState(true);
   const [isSearchOpen, setIsSearchOpen] = useState(false);
+
+  const navigate = useNavigate();
+  const apiUrl = import.meta.env.VITE_BACKOFFICE_API_URL;
 
   const toggleSearch = () => setIsSearchOpen(!isSearchOpen);
   const closeSearch = () => setIsSearchOpen(false);
@@ -17,24 +20,67 @@ export default function DefaultLayout() {
     if (isSearchOpen) closeSearch();
   };
 
-  // genres get
-  const apiUrl = import.meta.env.VITE_BACKOFFICE_API_URL;
+  // DATA FETCH
   useEffect(() => {
+    setLoading(true);
+    // requests counter
+    let completedRequests = 0;
+    const checkCompletion = () => {
+      completedRequests++;
+      if (completedRequests === 3) setLoading(false);
+    };
+
+    // genres
     axios
       .get(`${apiUrl}/genres`)
       .then((res) => {
-        const genres = res.data.data;
-        setGenres(genres);
+        setGenres(res.data.data);
+        checkCompletion();
       })
-      .catch((error) => console.error("Error:", error));
-  });
+      .catch((error) => {
+        console.error("Genres fetch Error:", error);
+        checkCompletion();
+      });
 
-  // form submit
-  const formSubmit = (e) => e.preventDefault();
+    // performers
+    axios
+      .get(`${apiUrl}/performers`)
+      .then((res) => {
+        setPerformers(res.data.data);
+        checkCompletion();
+      })
+      .catch((error) => {
+        console.error("Performers fetch Error:", error);
+        checkCompletion();
+      });
+
+    // contents
+    axios
+      .get(`${apiUrl}/contents`)
+      .then((res) => {
+        setContents(res.data.data);
+        checkCompletion();
+      })
+      .catch((error) => {
+        console.error("Content fetch Error:", error);
+        checkCompletion();
+      });
+  }, [apiUrl]);
+
+  // search
+  const formSubmit = (e) => {
+    e.preventDefault();
+    const query = e.currentTarget.search.value?.trim();
+
+    if (query) {
+      navigate(`/search?query=${query}`);
+      e.currentTarget.reset();
+      closeSearch();
+    }
+  };
 
   return (
     <>
-      {/* HEADER */}
       <header>
         <Navbar
           isSearchOpen={isSearchOpen}
@@ -43,12 +89,17 @@ export default function DefaultLayout() {
           genres={genres}
         />
       </header>
-      {/* MAIN */}
-      <main className="container" onClick={handleDocumentClick}>
-        <Outlet />
+
+      <main className="container-fluid px-3" onClick={handleDocumentClick}>
+        {loading ? (
+          <div className="text-center mt-5 pt-5">
+            <div className="spinner-grow text-black" role="status"></div>
+          </div>
+        ) : (
+          <Outlet context={{ genres, performers, contents }} />
+        )}
       </main>
 
-      {/* overlay for search-dropdown */}
       {isSearchOpen && <div className="search-overlay" onClick={closeSearch} />}
     </>
   );

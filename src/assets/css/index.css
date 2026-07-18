@@ -39,6 +39,10 @@ a {
   position: static;
 }
 
+.genres-dropdown .dropdown-item:hover {
+  background-color: #545454 !important;
+}
+
 .genres-dropdown .dropdown-toggle::after {
   display: none !important;
 }
@@ -95,4 +99,69 @@ a {
   height: 100%;
   z-index: 90;
   cursor: default;
+}
+
+.card-poster-img {
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+}
+
+/* hero */
+.hero-img {
+  min-height: 50vh;
+  max-height: 60vh;
+  filter: brightness(0.5);
+  object-fit: cover;
+}
+
+.hero-logo {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 120px;
+  object-fit: contain;
+}
+
+@media (min-width: 576px) {
+  .hero-img {
+    min-height: 60vh;
+    max-height: 70vh;
+  }
+
+  .hero-logo {
+    width: auto;
+    max-width: 300px;
+    max-height: 100px;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-img {
+    min-height: 70vh;
+    max-height: 80vh;
+  }
+
+  .hero-logo {
+    max-width: 400px;
+    max-height: 120px;
+  }
+}
+
+@media (min-width: 992px) {
+  .hero-img {
+    min-height: 80vh;
+    max-height: 90vh;
+  }
+
+  .hero-logo {
+    max-width: 500px;
+    max-height: 150px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .hero-logo {
+    max-width: 600px;
+    max-height: 180px;
+  }
 }
