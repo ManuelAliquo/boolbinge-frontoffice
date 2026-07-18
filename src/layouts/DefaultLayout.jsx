@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router-dom";
-import Navbar from "../assets/components/Navbar";
+import Navbar from "../components/Navbar";
 import axios from "axios";
 
 export default function DefaultLayout() {
