@@ -5,7 +5,7 @@ export default function Navbar({ isSearchOpen, toggleSearch, formSubmit, genres 
     <nav className="navbar pb-3 sticky-top">
       <div className="container-fluid">
         {/* brand */}
-        <a className="navbar-brand m-0" href="/">
+        <Link className="navbar-brand m-0" to="/">
           <picture>
             <source
               className="big-brand"
@@ -19,7 +19,7 @@ export default function Navbar({ isSearchOpen, toggleSearch, formSubmit, genres 
             />
             <img src="src/assets/imgs/logo-nobackground.png" alt="brand" />
           </picture>
-        </a>
+        </Link>
         {/* links */}
         <ul className="list-unstyled m-0 d-flex flex-grow-1 justify-content-evenly align-items-center">
           <li className="nav-item">

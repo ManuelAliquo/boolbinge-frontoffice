@@ -1,15 +1,17 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import DefaultLayout from "./layouts/DefaultLayout";
-import Homepage from "./pages/Homepage";
-import Searchpage from "./pages/Searchpage";
+import HomePage from "./pages/HomePage";
+import SearchPage from "./pages/SearchPage";
+import TypePage from "./pages/TypePage";
 
 export default function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route Component={DefaultLayout}>
-          <Route path="/" element={<Homepage />} />
-          <Route path="/search" element={<Searchpage />} />
+        <Route element={<DefaultLayout />}>
+          <Route index element={<HomePage />} />
+          <Route path="/search" element={<SearchPage />} />
+          <Route path="/:type" element={<TypePage />} />
         </Route>
       </Routes>
     </BrowserRouter>
