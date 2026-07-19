@@ -19,12 +19,12 @@ export default function SearchPage() {
 
   return (
     <div className="text-light py-4">
-      <h4 className="mb-4 fw-semibold">Search results for: "{query}"</h4>
+      <h4 className="ms-1 mb-4 fw-semibold">Search results for: "{query}"</h4>
       {/* movies */}
       {searchedMovies.length > 0 && (
         <section className="mb-5">
           <div className="border-bottom border-secondary pb-2 mb-3">
-            <h3 className="m-0 fs-4">Movies</h3>
+            <h3 className="ms-1 mb-0 fs-4">Movies</h3>
           </div>
           <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3">
             {searchedMovies.map((content) => (
@@ -39,7 +39,7 @@ export default function SearchPage() {
       {searchedShowsAnime.length > 0 && (
         <section className="mb-5">
           <div className="border-bottom border-secondary pb-2 mb-3">
-            <h3 className="m-0 fs-4">Shows & Anime</h3>
+            <h3 className="ms-1 mb-0 fs-4">Shows & Anime</h3>
           </div>
           <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3">
             {searchedShowsAnime.map((content) => (
@@ -53,7 +53,7 @@ export default function SearchPage() {
       {/* 0 results */}
       {filteredContents.length === 0 && (
         <div className="text-center py-5">
-          <i className="bi bi-exclamation-circle fs-1 d-block mb-3"></i>
+          <i className="bi bi-exclamation-circle fs-1 d-block mb-3" />
           <p className="fs-5">No results found matching your search.</p>
         </div>
       )}

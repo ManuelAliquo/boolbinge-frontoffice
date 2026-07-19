@@ -56,7 +56,7 @@ export default function DefaultLayout() {
 
   return (
     <>
-      <header>
+      <header className="sticky-top">
         <Navbar
           isSearchOpen={isSearchOpen}
           toggleSearch={toggleSearch}
@@ -66,8 +66,10 @@ export default function DefaultLayout() {
       </header>
       <main className="container-fluid px-3" onClick={handleDocumentClick}>
         {loading ? (
-          <div className="text-center mt-5 pt-5">
-            <div className="spinner-grow text-warning" role="status"></div>
+          <div className="d-flex justify-content-center align-items-center vh-100 mb-5 pb-5">
+            <div className="pb-5 mb-5">
+              <div className="spinner-grow text-warning" role="status"></div>
+            </div>
           </div>
         ) : (
           <Outlet context={{ genres, performers, contents }} />

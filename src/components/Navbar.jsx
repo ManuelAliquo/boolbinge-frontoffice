@@ -1,35 +1,29 @@
 import { Link } from "react-router-dom";
+import bigBrand from "../assets/imgs/brand-nobackground.png";
+import smallBrand from "../assets/imgs/logo-nobackground.png";
 
 export default function Navbar({ isSearchOpen, toggleSearch, formSubmit, genres }) {
   return (
-    <nav className="navbar pb-3 sticky-top">
+    <nav className="navbar pb-3">
       <div className="container-fluid">
         {/* brand */}
         <Link className="navbar-brand m-0" to="/">
           <picture>
-            <source
-              className="big-brand"
-              srcSet="src/assets/imgs/brand-nobackground.png"
-              media="(min-width: 700px)"
-            />
-            <source
-              className="small-brand"
-              srcSet="src/assets/imgs/logo-nobackground.png"
-              media="(max-width: 576px)"
-            />
-            <img src="src/assets/imgs/logo-nobackground.png" alt="brand" />
+            <source className="big-brand" srcSet={bigBrand} media="(min-width: 700px)" />
+            <source className="small-brand" srcSet={smallBrand} media="(max-width: 576px)" />
+            <img src={smallBrand} alt="brand" />
           </picture>
         </Link>
         {/* links */}
         <ul className="list-unstyled m-0 d-flex flex-grow-1 justify-content-evenly align-items-center">
           <li className="nav-item">
-            <Link className="nav-link d-flex flex-column align-items-center p-0" to="/movies">
+            <Link className="nav-link d-flex flex-column align-items-center p-0" to="/movie">
               <i className="bi bi-film text-light fs-5" />
               <span className="text-light small d-none d-sm-inline">Movies</span>
             </Link>
           </li>
           <li className="nav-item">
-            <Link className="nav-link d-flex flex-column align-items-center p-0" to="/shows">
+            <Link className="nav-link d-flex flex-column align-items-center p-0" to="/show">
               <i className="bi bi-tv text-light fs-5" />
               <span className="text-light small d-none d-sm-inline">Shows</span>
             </Link>
@@ -46,7 +40,7 @@ export default function Navbar({ isSearchOpen, toggleSearch, formSubmit, genres 
               className="d-flex flex-column align-items-center dropdown-toggle"
               data-bs-toggle="dropdown"
             >
-              <i className="bi bi-camera-reels text-light fs-5"></i>
+              <i className="bi bi-camera-reels text-light fs-5" />
               <span className="text-light small d-none d-sm-inline">
                 Genres
                 <i className="bi bi-chevron-down ms-1 small" />

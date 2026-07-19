@@ -22,15 +22,16 @@ export default function HomePage() {
   return (
     <div className="text-light py-3">
       {featuredContent && <HeroFeatured content={featuredContent} />}
+      <h1 className="display-4 mb-0 text-center text-glow text-warning">Discover</h1>
       {randomGenres.map((genre) => {
         const genreContents = getContentsByGenre(genre.id);
         if (genreContents.length === 0) return null;
         return (
           <section key={genre.id} className="mb-5">
             <div className="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2 mb-3">
-              <h3 className="m-0 fs-4">{genre.name}</h3>
-              <Link to={`/genres/${genre.slug}`} className="text-warning small">
-                See All <i className="bi bi-chevron-right small"></i>
+              <h2 className="ms-1 mb-0">{genre.name}</h2>
+              <Link to={`/genres/${genre.slug}`} className="text-warning small text-glow">
+                See All <i className="bi bi-chevron-right small" />
               </Link>
             </div>
             <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3">
