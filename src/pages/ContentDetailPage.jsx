@@ -87,7 +87,7 @@ export default function ContentDetailPage() {
                   <Link
                     key={genre.id}
                     to={`/genres/${genre.slug}`}
-                    className="badge fs-6 bg-dark bg-opacity-50 text-light px-3 py-2"
+                    className="genre-badge badge fs-6 bg-dark bg-opacity-50 text-light px-3 py-2"
                   >
                     {genre.name}
                   </Link>
@@ -128,7 +128,7 @@ export default function ContentDetailPage() {
                 {content.performers.map((performer) => (
                   <div key={performer.id} className="col">
                     <Link to={`/performers/${performer.slug}`}>
-                      <div className="card bg-dark rounded-4 text-light border-0 h-100 bg-opacity-50">
+                      <div className="performer-card card bg-dark rounded-4 text-light border-0 h-100 bg-opacity-50">
                         <div className="card-img pt-2 px-2">
                           <img
                             src={

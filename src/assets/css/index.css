@@ -71,6 +71,10 @@ a {
   position: static;
 }
 
+.genres-dropdown .dropdown-item {
+  transition: background-color 0.1s;
+}
+
 .genres-dropdown .dropdown-item:hover {
   background-color: #545454 !important;
 }
@@ -232,12 +236,26 @@ a {
   object-fit: cover;
 }
 
+.performer-card:hover .performer-img {
+  scale: 1.03;
+}
+
+.genre-badge,
+.performer-card {
+  transition: all 0.1s;
+}
+
+.genre-badge:hover,
+.performer-card:hover {
+  background-color: #545454 !important;
+}
+
 .trailer-wrapper {
   border: 2px solid rgba(255, 255, 255, 0.1);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
   transition:
-    border-color 0.3s ease,
-    box-shadow 0.3s ease;
+    border-color 0.1s ease,
+    box-shadow 0.1s ease;
 }
 
 .trailer-wrapper:hover {
