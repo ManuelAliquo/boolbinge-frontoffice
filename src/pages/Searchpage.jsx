@@ -48,7 +48,7 @@ export default function SearchPage() {
       </form>
       {!hasQuery && (
         <div className="text-center py-5 mt-5">
-          <i className="bi bi-search fs-1 d-block mb-3 text-warning"></i>
+          <i className="bi bi-search fs-1 d-block mb-3 text-warning" />
           <p className="fs-4 fw-semibold">What's Next?</p>
           <p className="text-light opacity-50">Find movies, shows and anime from our catalog.</p>
         </div>
@@ -89,7 +89,7 @@ export default function SearchPage() {
           {/* 0 results */}
           {filteredContents.length === 0 && (
             <div className="text-center py-5">
-              <i className="bi bi-exclamation-circle fs-1 d-block mb-3"></i>
+              <i className="bi bi-exclamation-circle fs-1 d-block mb-3" />
               <p className="fs-5">No results found matching your search.</p>
             </div>
           )}

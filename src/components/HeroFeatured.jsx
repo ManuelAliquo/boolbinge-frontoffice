@@ -4,8 +4,8 @@ export default function HeroFeatured({ content }) {
   const baseUrl = import.meta.env.VITE_BACKOFFICE_BASE_URL;
 
   return (
-    <>
-      <div className="position-relative bg-dark rounded-4 overflow-hidden shadow mb-4">
+    <Link to={`/contents/${content.slug}`}>
+      <div className="position-relative bg-dark rounded-4 overflow-hidden shadow mb-4 hero-card">
         <img
           src={`${baseUrl}/storage/${content.background}`}
           className="d-block w-100 hero-img object-fit-cover"
@@ -24,14 +24,8 @@ export default function HeroFeatured({ content }) {
           {content.short_description && (
             <p className="text-light opacity-75 mb-3 mb-sm-4 small">{content.short_description}</p>
           )}
-          <Link
-            to={`/contents/${content.slug}`}
-            className="btn btn-warning fw-bold px-3 px-sm-4 py-1 py-sm-2 btn-glow"
-          >
-            Info
-          </Link>
         </div>
       </div>
-    </>
+    </Link>
   );
 }

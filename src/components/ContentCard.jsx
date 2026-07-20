@@ -7,7 +7,7 @@ export default function ContentCard({ content }) {
 
   return (
     <Link to={`/contents/${content.slug}`}>
-      <div className="content-card card h-100 bg-dark text-light border-0 shadow-sm">
+      <div className="content-card card h-100 bg-dark text-light border-0 shadow">
         <img
           src={posterSrc}
           className="card-img-top card-poster-img"
@@ -17,7 +17,7 @@ export default function ContentCard({ content }) {
           }}
         />
         <div className="card-body p-2">
-          <h6 className="card-title text-truncate mb-1 fs-6">{content.title}</h6>
+          <h6 className="card-title text-truncate mb-1 text-shadow fs-6">{content.title}</h6>
           {content.rating && (
             <span className="text-warning small d-flex align-items-center">
               <i className="bi bi-star-fill me-1" />

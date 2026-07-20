@@ -43,25 +43,23 @@ export default function DefaultLayout() {
   };
 
   return (
-    <>
-      <div className="page-wrapper d-flex flex-column min-vh-100">
-        {/* HEADER */}
-        <header>
-          <Navbar formSubmit={formSubmit} genres={genres} />
-        </header>
-        {/* MAIN */}
-        <main className="container-fluid px-3 flex-grow-1">
-          {loading ? (
-            <div className="d-flex justify-content-center align-items-center vh-100 mb-5 pb-5">
-              <div className="spinner-grow text-warning" role="status"></div>
-            </div>
-          ) : (
-            <Outlet context={{ genres, performers, contents }} />
-          )}
-        </main>
-        {/* FOOTER */}
-        <Footer />
-      </div>
-    </>
+    <div className="page-wrapper d-flex flex-column min-vh-100">
+      {/* HEADER */}
+      <header>
+        <Navbar formSubmit={formSubmit} genres={genres} />
+      </header>
+      {/* MAIN */}
+      <main className="container-fluid px-3 flex-grow-1">
+        {loading ? (
+          <div className="d-flex justify-content-center align-items-center vh-100 mb-5 pb-5">
+            <div className="spinner-grow text-warning" role="status"></div>
+          </div>
+        ) : (
+          <Outlet context={{ genres, performers, contents }} />
+        )}
+      </main>
+      {/* FOOTER */}
+      <Footer />
+    </div>
   );
 }

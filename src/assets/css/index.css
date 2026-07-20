@@ -47,10 +47,6 @@ a {
     0 0 15px rgba(167, 167, 167, 0.4);
 }
 
-.btn-glow {
-  box-shadow: 0 0 12px rgb(255, 255, 255);
-}
-
 /* NAVBAR */
 .navbar {
   background: #000000;
@@ -156,6 +152,17 @@ a {
 }
 
 /* hero */
+.hero-card {
+  transition: all 0.1s ease;
+}
+
+.hero-card:hover {
+  box-shadow:
+    0 0 35px rgba(255, 193, 7, 0.3),
+    0 0 70px rgba(255, 193, 7, 0.1) !important;
+  filter: brightness(1.1);
+}
+
 .hero-img {
   min-height: 50vh;
   max-height: 60vh;

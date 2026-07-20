@@ -39,7 +39,7 @@ export default function HomePage() {
   if (validGenres.length === 0) {
     return (
       <div className="text-light text-center py-5 mt-5">
-        <i className="bi bi-tags fs-1 d-block mb-3"></i>
+        <i className="bi bi-tags fs-1 d-block mb-3" />
         <p className="fs-5">No genres available yet.</p>
       </div>
     );

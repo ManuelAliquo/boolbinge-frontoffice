@@ -49,14 +49,18 @@ export default function PerformerPage() {
   return (
     <div className="text-light py-4 px-sm-1">
       {/* header */}
-      <div className="d-flex align-items-center gap-3 mb-4 border-bottom border-secondary pb-3">
-        <img
-          src={performer.picture ? `${baseUrl}/storage/${performer.picture}` : performerPlaceholder}
-          className="rounded-3 performer-header-img shadow"
-          alt={performer.name}
-          onError={(e) => (e.target.src = performerPlaceholder)}
-        />
-        <h2 className="display-5 text-shadow mb-0">{performer.name}</h2>
+      <div className="mb-4 border-bottom border-secondary pb-3">
+        <div className="d-inline-flex align-items-center gap-3 bg-dark bg-opacity-50 pe-4 rounded-4">
+          <img
+            src={
+              performer.picture ? `${baseUrl}/storage/${performer.picture}` : performerPlaceholder
+            }
+            className="rounded-3 performer-header-img shadow"
+            alt={performer.name}
+            onError={(e) => (e.target.src = performerPlaceholder)}
+          />
+          <h2 className="display-5 text-shadow mb-0">{performer.name}</h2>
+        </div>
       </div>
       {/* info */}
       {performer.contents && performer.contents.length > 0 ? (
