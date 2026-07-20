@@ -9,7 +9,7 @@ export default function Footer() {
           to="/"
           className="d-flex align-items-center gap-2 text-light text-decoration-none opacity-75"
         >
-          <img src={smallBrand} alt="logo" className="footer-logo" />
+          <img src={smallBrand} alt="logo" loading="lazy" className="footer-logo" />
           <span className="small">BoolBinge • Manuel Aliquò • 2026</span>
         </Link>
         <div className="d-flex align-items-center gap-2">

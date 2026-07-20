@@ -2,6 +2,7 @@ import { useParams, useOutletContext, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import ContentCard from "../components/ContentCard";
+import ResourceNotFound from "../components/ResourceNotFound";
 
 export default function GenrePage() {
   const { slug } = useParams();
@@ -32,17 +33,7 @@ export default function GenrePage() {
     );
   }
 
-  if (!genre) {
-    return (
-      <div className="text-light text-center py-5">
-        <i className="bi bi-exclamation-circle fs-1 d-block mb-3" />
-        <p className="fs-5">Genre not found.</p>
-        <Link to="/" className="btn btn-warning">
-          Back to Home
-        </Link>
-      </div>
-    );
-  }
+  if (!genre) return <ResourceNotFound icon="bi-camera-reels" message="Genre not found." />;
 
   return (
     <div className="text-light py-4">

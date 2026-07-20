@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import ContentCard from "../components/ContentCard";
 import performerPlaceholder from "../assets/imgs/performer-placeholder.png";
+import ResourceNotFound from "../components/ResourceNotFound";
 
 export default function PerformerPage() {
   const { slug } = useParams();
@@ -34,17 +35,7 @@ export default function PerformerPage() {
     );
   }
 
-  if (!performer) {
-    return (
-      <div className="text-light text-center py-5">
-        <i className="bi bi-exclamation-circle fs-1 d-block mb-3" />
-        <p className="fs-5">Performer not found.</p>
-        <Link to="/" className="btn btn-warning">
-          Back to Home
-        </Link>
-      </div>
-    );
-  }
+  if (!performer) return <ResourceNotFound icon="bi-person-fill" message="Performer not found." />;
 
   return (
     <div className="text-light py-4 px-sm-1">
@@ -57,6 +48,7 @@ export default function PerformerPage() {
             }
             className="rounded-3 performer-header-img shadow"
             alt={performer.name}
+            loading="lazy"
             onError={(e) => (e.target.src = performerPlaceholder)}
           />
           <h2 className="display-5 text-shadow mb-0">{performer.name}</h2>

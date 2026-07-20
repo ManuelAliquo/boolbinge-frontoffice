@@ -1,5 +1,5 @@
 import { useOutletContext, Link } from "react-router-dom";
-import HeroFeatured from "../components/HeroFeatured";
+import Hero from "../components/Hero";
 import ContentCard from "../components/ContentCard";
 
 export default function HomePage() {
@@ -47,7 +47,7 @@ export default function HomePage() {
 
   return (
     <div className="text-light py-3">
-      {featuredContent && <HeroFeatured content={featuredContent} />}
+      {featuredContent && <Hero content={featuredContent} />}
       <h1 className="display-4 mb-0 text-center text-glow text-warning">Discover</h1>
       {randomGenres.map((genre) => {
         const genreContents = getContentsByGenre(genre.id);

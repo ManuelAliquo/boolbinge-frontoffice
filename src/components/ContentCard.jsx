@@ -12,6 +12,7 @@ export default function ContentCard({ content }) {
           src={posterSrc}
           className="card-img-top card-poster-img"
           alt={content.title}
+          loading="lazy"
           onError={(e) => {
             e.target.src = posterPlaceholder;
           }}

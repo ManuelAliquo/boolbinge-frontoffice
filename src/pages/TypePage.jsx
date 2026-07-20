@@ -1,4 +1,4 @@
-import { useParams, useOutletContext, Link } from "react-router-dom";
+import { useParams, useOutletContext, Link, Navigate } from "react-router-dom";
 import ContentCard from "../components/ContentCard";
 
 export default function TypePage() {
@@ -7,20 +7,9 @@ export default function TypePage() {
 
   const validTypes = ["movie", "show", "anime"];
 
-  if (!validTypes.includes(type)) {
-    return (
-      <div className="text-light text-center py-5">
-        <i className="bi bi-question-circle fs-1 d-block mb-3" />
-        <p className="fs-5">Page not found.</p>
-        <Link to="/" className="btn btn-warning">
-          Back to Home
-        </Link>
-      </div>
-    );
-  }
+  if (!validTypes.includes(type)) return <Navigate to="/404" replace />;
 
   const label = type.charAt(0).toUpperCase() + type.slice(1) + "s";
-
   const filteredContents = contents.filter((c) => c.type === type);
 
   return (

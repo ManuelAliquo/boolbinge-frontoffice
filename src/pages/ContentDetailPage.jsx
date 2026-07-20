@@ -2,6 +2,7 @@ import { useParams, Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import performerPlaceholder from "../assets/imgs/performer-placeholder.png";
+import ResourceNotFound from "../components/ResourceNotFound";
 
 export default function ContentDetailPage() {
   const { slug } = useParams();
@@ -42,6 +43,8 @@ export default function ContentDetailPage() {
     );
   }
 
+  if (!content) return <ResourceNotFound icon="bi-film" message="Content not found." />;
+
   return (
     <>
       {/* background */}
@@ -49,6 +52,7 @@ export default function ContentDetailPage() {
         className="detail-background"
         src={`${baseUrl}/storage/${content.background}`}
         alt="background"
+        loading="lazy"
       />
       <div className="content-detail my-4 px-md-2">
         <div className="row mt-md-5 px-sm-2">
@@ -59,6 +63,7 @@ export default function ContentDetailPage() {
                 src={`${baseUrl}/storage/${content.logo}`}
                 className="detail-logo mb-5"
                 alt={content.title}
+                loading="lazy"
               />
             ) : (
               <h1 className="display-1 fw-bold mb-3">{content.title}</h1>
@@ -115,6 +120,7 @@ export default function ContentDetailPage() {
                   src={`https://www.youtube.com/embed/${getYoutubeId(content.trailer)}`}
                   title={`${content.title} trailer`}
                   allowFullScreen
+                  loading="lazy"
                 ></iframe>
               </div>
             </div>
@@ -140,6 +146,7 @@ export default function ContentDetailPage() {
                             }
                             className="card-img-top performer-img rounded-circle"
                             alt={performer.name}
+                            loading="lazy"
                             onError={(e) => (e.target.src = performerPlaceholder)}
                           />
                         </div>

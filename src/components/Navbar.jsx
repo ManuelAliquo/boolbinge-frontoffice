@@ -11,7 +11,7 @@ export default function Navbar({ formSubmit, genres }) {
           <picture>
             <source className="big-brand" srcSet={bigBrand} media="(min-width: 700px)" />
             <source className="small-brand" srcSet={smallBrand} media="(max-width: 576px)" />
-            <img src={smallBrand} alt="brand" />
+            <img src={smallBrand} alt="brand" loading="lazy" />
           </picture>
         </Link>
         {/* links */}

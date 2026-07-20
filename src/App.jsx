@@ -6,6 +6,7 @@ import TypePage from "./pages/TypePage";
 import ContentDetailPage from "./pages/ContentDetailPage";
 import GenrePage from "./pages/GenrePage";
 import PerformerPage from "./pages/PerformerPage";
+import NotFoundPage from "./pages/NotFoundPage";
 
 export default function App() {
   return (
@@ -18,6 +19,8 @@ export default function App() {
           <Route path="/genres/:slug" element={<GenrePage />} />
           <Route path="/performers/:slug" element={<PerformerPage />} />
           <Route path="/:type" element={<TypePage />} />
+          <Route path="/404" element={<NotFoundPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
