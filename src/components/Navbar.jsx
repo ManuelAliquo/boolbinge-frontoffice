@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import bigBrand from "../assets/imgs/brand-nobackground.png";
 import smallBrand from "../assets/imgs/logo-nobackground.png";
 
-export default function Navbar({ isSearchOpen, toggleSearch, formSubmit, genres }) {
+export default function Navbar({ formSubmit, genres }) {
   return (
     <nav className="navbar pb-3">
       <div className="container-fluid">
@@ -60,42 +60,24 @@ export default function Navbar({ isSearchOpen, toggleSearch, formSubmit, genres 
         </ul>
         {/* search desktop */}
         <form className="nav-search d-flex d-none d-sm-flex" role="search" onSubmit={formSubmit}>
-          <div className="input-group">
+          <div className="input-group border border-primary rounded">
             <input
-              className="form-control bg-transparent"
+              className="form-control bg-transparent border-0"
               type="search"
               name="search"
               aria-label="Search"
               placeholder="Search..."
             />
-            <button className="btn btn-outline-light" type="submit">
+            <button className="btn btn-outline-primary border-0" type="submit">
               <i className="bi bi-search" />
             </button>
           </div>
         </form>
         {/* search mobile */}
         <div className="d-sm-none">
-          <button className="btn btn-outline-light" onClick={toggleSearch}>
+          <Link className="btn btn-outline-primary" to="/search">
             <i className="bi bi-search" />
-          </button>
-          {isSearchOpen && (
-            <div className="position-absolute end-0 mt-3 p-2 rounded-4">
-              <form className="nav-search" role="search" onSubmit={formSubmit}>
-                <div className="input-group">
-                  <input
-                    className="form-control bg-dark"
-                    type="search"
-                    name="search"
-                    placeholder="Search..."
-                    autoFocus
-                  />
-                  <button className="btn btn-outline-light bg-dark" type="submit">
-                    <i className="bi bi-search" />
-                  </button>
-                </div>
-              </form>
-            </div>
-          )}
+          </Link>
         </div>
       </div>
     </nav>

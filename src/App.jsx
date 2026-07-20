@@ -5,6 +5,7 @@ import SearchPage from "./pages/SearchPage";
 import TypePage from "./pages/TypePage";
 import ContentDetailPage from "./pages/ContentDetailPage";
 import GenrePage from "./pages/GenrePage";
+import PerformerPage from "./pages/PerformerPage";
 
 export default function App() {
   return (
@@ -15,6 +16,7 @@ export default function App() {
           <Route path="/search" element={<SearchPage />} />
           <Route path="/contents/:slug" element={<ContentDetailPage />} />
           <Route path="/genres/:slug" element={<GenrePage />} />
+          <Route path="/performers/:slug" element={<PerformerPage />} />
           <Route path="/:type" element={<TypePage />} />
         </Route>
       </Routes>

@@ -26,7 +26,7 @@ export default function TypePage() {
   return (
     <div className="text-light py-4">
       <div className="border-bottom border-secondary pb-2 mb-4">
-        <h2 className="ms-1 mb-0 fs-3">Explore {label}</h2>
+        <h1 className="display-5 mb-0 text-center text-glow text-warning">Explore {label}</h1>
       </div>
       {filteredContents.length > 0 ? (
         <div className="row row-cols-2 row-cols-sm-3 row-cols-md-4 row-cols-lg-6 g-3">

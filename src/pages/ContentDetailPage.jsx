@@ -37,9 +37,7 @@ export default function ContentDetailPage() {
   if (loading) {
     return (
       <div className="d-flex justify-content-center align-items-center vh-100 mb-5 pb-5">
-        <div className="pb-5 mb-5">
-          <div className="spinner-grow text-warning" role="status"></div>
-        </div>
+        <div className="spinner-grow text-warning" role="status"></div>
       </div>
     );
   }
@@ -63,13 +61,13 @@ export default function ContentDetailPage() {
                 alt={content.title}
               />
             ) : (
-              <h1 className="display-4 fw-bold mb-3">{content.title}</h1>
+              <h1 className="display-1 fw-bold mb-3">{content.title}</h1>
             )}
             {/* rating - year - production - length */}
             <div className="d-flex flex-wrap align-items-center gap-3 mb-3">
               {content.rating && (
                 <span className="badge bg-warning text-dark fs-6">
-                  <i className="bi bi-star-fill me-1"></i>
+                  <i className="bi bi-star-fill me-1" />
                   {content.rating}
                 </span>
               )}
@@ -108,8 +106,9 @@ export default function ContentDetailPage() {
           {/* trailer */}
           {content.trailer && getYoutubeId(content.trailer) && (
             <div className="col-12 col-md-8">
-              <h3 className="border-bottom border-secondary pb-2 mb-3">
-                <i className="bi bi-play-circle-fill text-warning me-2"></i>Watch Trailer
+              <h3 className="border-bottom border-secondary pb-2 mb-3 text-shadow">
+                <i className="bi bi-play-circle-fill text-warning me-2" />
+                Watch Trailer
               </h3>
               <div className="ratio ratio-16x9 shadow-lg rounded-3 overflow-hidden trailer-wrapper">
                 <iframe
@@ -123,7 +122,10 @@ export default function ContentDetailPage() {
           {/* performers */}
           {content.performers && content.performers.length > 0 && (
             <div className="col-12 col-md-4">
-              <h3 className="border-bottom border-secondary pb-2 mb-3">Cast</h3>
+              <h3 className="border-bottom border-secondary pb-2 mb-3 text-shadow">
+                <i className="bi bi-people-fill text-warning me-2" />
+                Cast
+              </h3>
               <div className="row row-cols-3 row-cols-md-2 row-cols-lg-3 g-2">
                 {content.performers.map((performer) => (
                   <div key={performer.id} className="col">

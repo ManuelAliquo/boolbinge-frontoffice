@@ -4,12 +4,29 @@ import ContentCard from "../components/ContentCard";
 
 export default function HomePage() {
   const { contents, genres } = useOutletContext();
+
+  if (!contents || contents.length === 0) {
+    return (
+      <div className="text-light text-center py-5 mt-5">
+        <div className="d-flex align-items-center justify-content-center gap-4 mb-3">
+          <i className="bi bi-film fs-1 d-block" />
+          <span>•</span>
+          <i className="bi bi-tv fs-1 d-block" />
+          <span>•</span>
+          <i className="bi bi-mask fs-1 d-block" />
+        </div>
+        <p className="fs-5">No contents available yet.</p>
+      </div>
+    );
+  }
+
   // featured content
   const withBackground = contents.filter((content) => content.background);
   const featuredContent =
     withBackground.length > 0
       ? withBackground[Math.floor(Math.random() * withBackground.length)]
       : null;
+
   // random genres
   const validGenres = genres.filter((genre) =>
     contents.some((content) => content.genres?.some((g) => g.id === genre.id)),
@@ -18,6 +35,15 @@ export default function HomePage() {
   const randomGenres = shuffled.slice(0, 3);
   const getContentsByGenre = (genreId) =>
     contents.filter((content) => content.genres?.some((g) => g.id === genreId));
+
+  if (validGenres.length === 0) {
+    return (
+      <div className="text-light text-center py-5 mt-5">
+        <i className="bi bi-tags fs-1 d-block mb-3"></i>
+        <p className="fs-5">No genres available yet.</p>
+      </div>
+    );
+  }
 
   return (
     <div className="text-light py-3">
@@ -29,7 +55,7 @@ export default function HomePage() {
         return (
           <section key={genre.id} className="mb-5">
             <div className="d-flex justify-content-between align-items-center border-bottom border-secondary pb-2 mb-3">
-              <h2 className="ms-1 mb-0">{genre.name}</h2>
+              <h2 className="ms-1 mb-0 text-shadow">{genre.name}</h2>
               <Link to={`/genres/${genre.slug}`} className="text-warning small text-glow">
                 See All <i className="bi bi-chevron-right small" />
               </Link>
