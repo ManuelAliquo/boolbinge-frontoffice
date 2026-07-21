@@ -48,12 +48,14 @@ export default function ContentDetailPage() {
   return (
     <>
       {/* background */}
-      <img
-        className="detail-background"
-        src={`${baseUrl}/storage/${content.background}`}
-        alt="background"
-        loading="lazy"
-      />
+      {content.background && (
+        <img
+          className="detail-background"
+          src={`${baseUrl}/storage/${content.background}`}
+          alt="background"
+          loading="lazy"
+        />
+      )}
       <div className="content-detail my-4 px-md-2">
         <div className="row mt-md-5 px-sm-2">
           <div className="col">
